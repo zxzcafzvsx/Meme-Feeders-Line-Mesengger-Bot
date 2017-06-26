@@ -27,17 +27,19 @@ foreach ($client->parseEvents() as $event) {
         case 'message':
             $message = $event['message'];
             switch ($message['type']) {
-                case 'text':
-                    $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => $message['text']
-                            )
-                        )
-                    ));
-                    break;
+                // case 'text':
+                //     $client->replyMessage(array(
+                //         'replyToken' => $event['replyToken'],
+                //         'messages' => array(
+                //             array(
+                //                 'type' => 'text',
+                //                 'text' => $message['text']
+                //             )
+                //         )
+                //     ));
+                //     break;
+
+                
                 // using /cw list command
                 case '/cw list':
                   $client->replyMessage(array(
