@@ -36,32 +36,32 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     'type' => 'text',
                                     'text' => "Chat Wheel Sounds list
-                                    \nBP Level | id - Sounds
-                                    \n 26      | 1  - Ba-dum tishh
-                                    \n 26      | 2  - Charge
-                                    \n 26      | 3  - Frog
-                                    \n 26      | 4  - Crash and burn
-                                    \n 26      | 5  - Applause
-                                    \n 107     | 6  - Sad trombone
-                                    \n 107     | 7  - Crickets
-                                    \n 107     | 8  - Drum roll
-                                    \n 107     | 9  - Headshake
-                                    \n 107     | 10 - Crybaby
-                                    \n 157     | 11 - Patience from Zhou
-                                    \n 157     | 12 - 玩不了啦!
-                                    \n 157     | 13 - Боже, ты посмотри вокруг, что происходит!
-                                    \n 207     | 14 - Waow
-                                    \n 207     | 14 - 破两路更好打, 是吧?
-                                    \n 207     | 14 - Жил до конца, умер как герой
-                                    \n 257     | 14 - They're all dead!
-                                    \n 257     | 14 - 天火!
-                                    \n 257     | 14 - Ай-ай-ай-ай-ай, что сейчас произошло!
-                                    \n 307     | 14 - Brutal. Savage. Rekt.
-                                    \n 307     | 14 - 加油!
-                                    \n 307     | 14 - Это ГГ
-                                    \n 357     | 14 - It's a disastah!
-                                    \n 357     | 14 - 走好, 不送
-                                    \n 357     | 14 - Это. Просто. Нечто.
+                                    \nid - Sounds
+                                    \n1  - Ba-dum tishh
+                                    \n2  - Charge
+                                    \n3  - Frog
+                                    \n4  - Crash and burn
+                                    \n5  - Applause
+                                    \n6  - Sad trombone
+                                    \n7  - Crickets
+                                    \n8  - Drum roll
+                                    \n9  - Headshake
+                                    \n10 - Crybaby
+                                    \n11 - Patience from Zhou
+                                    \n12 - 玩不了啦!
+                                    \n13 - Боже, ты посмотри вокруг, что происходит!
+                                    \n14 - Waow
+                                    \n15 - 破两路更好打, 是吧?
+                                    \n16 - Жил до конца, умер как герой
+                                    \n17 - They're all dead!
+                                    \n18 - 天火!
+                                    \n19 - Ай-ай-ай-ай-ай, что сейчас произошло!
+                                    \n20 - Brutal. Savage. Rekt.
+                                    \n21 - 加油!
+                                    \n22 - Это ГГ
+                                    \n23 - It's a disastah!
+                                    \n24 - 走好, 不送
+                                    \n25 - Это. Просто. Нечто.
                                     "
                                 )
                             )
