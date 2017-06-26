@@ -35,33 +35,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => "Chat Wheel Sounds list\n
-                                    \r\nid - Sounds
-                                    \r1  - Ba-dum tishh
-                                    \r2  - Charge
-                                    \r3  - Frog
-                                    \r\n4  - Crash and burn
-                                    \r\n5  - Applause
-                                    6  - Sad trombone
-                                    7  - Crickets
-                                    8  - Drum roll
-                                    9  - Headshake
-                                    10 - Crybaby
-                                    11 - Patience from Zhou
-                                    12 - 玩不了啦!
-                                    13 - Боже, ты посмотри вокруг, что происходит!
-                                    14 - Waow
-                                    15 - 破两路更好打, 是吧?
-                                    16 - Жил до конца, умер как герой
-                                    17 - They're all dead!
-                                    18 - 天火!
-                                    19 - Ай-ай-ай-ай-ай, что сейчас произошло!
-                                    20 - Brutal. Savage. Rekt.
-                                    21 - 加油!
-                                    22 - Это ГГ
-                                    23 - It's a disastah!
-                                    24 - 走好, 不送
-                                    25 - Это. Просто. Нечто.
+                                    'text' => "Chat Wheel Sounds list\nid - Sounds\n1  - Ba-dum tishh\n2  - Charge\n3  - Frog\n4  - Crash and burn\n5  - Applause\n6  - Sad trombone\n7  - Crickets\n8  - Drum roll\n9  - Headshake\n10 - Crybaby\n11 - Patience from Zhou\n12 - 玩不了啦!\n13 - Боже, ты посмотри вокруг, что происходит!\n14 - Waow\n15 - 破两路更好打, 是吧?\n16 - Жил до конца, умер как герой\n17 - They're all dead!\n18 - 天火!\n19 - Ай-ай-ай-ай-ай, что сейчас произошло!\n20 - Brutal. Savage. Rekt.\n21 - 加油!\n22 - Это ГГ\n23 - It's a disastah!\n24 - 走好, 不送\n25 - Это. Просто. Нечто.
                                     "
                                 )
                             )
