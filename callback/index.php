@@ -49,12 +49,8 @@ foreach ($client->parseEvents() as $event) {
               'messages' => array(
                 array(
                   'type' => 'text',
-                  'text' => '
-                  Hi, I\'m Dota 2 Chat Wheel Sounds Bot,
-                  use /cw list for the list of sounds,
-                  use /cw {id} to make the bot send the sounds of specific sounds
-
-                  http://blablaba.com'
+                  'text' => ' Hi, I\'m Dota 2 Chat Wheel Sounds Bot, \n use /cw list for the list of sounds, \n use /cw {id} to make the bot send the sounds of specific sounds
+                  \n \n http://blablaba.com'
                 )
               )
             ));
