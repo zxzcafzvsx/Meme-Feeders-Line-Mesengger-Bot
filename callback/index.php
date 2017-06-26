@@ -44,22 +44,21 @@ foreach ($client->parseEvents() as $event) {
             }
             break;
         case 'join':
-          $client->replyMessage(array(
-            'replyToken' => $event['replyToken'],
-            'messages' => array(
-              array(
-                'type' => 'text',
-                'text' => '
-                Hi, I\'m Dota 2 Chat Wheel Sounds Bot,
-                use /cw list for the list of sounds,
-                use /cw {id} to make the bot send the sounds of specific sounds
+            $client->replyMessage(array(
+              'replyToken' => $event['replyToken'],
+              'messages' => array(
+                array(
+                  'type' => 'text',
+                  'text' => '
+                  Hi, I\'m Dota 2 Chat Wheel Sounds Bot,
+                  use /cw list for the list of sounds,
+                  use /cw {id} to make the bot send the sounds of specific sounds
 
-                http://blablaba.com
-                '
+                  http://blablaba.com'
+                )
               )
-            )
-          ))
-          break;
+            ));
+            break;
         default:
             error_log("Unsupporeted event type: " . $event['type']);
             break;
