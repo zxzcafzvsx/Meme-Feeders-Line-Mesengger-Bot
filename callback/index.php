@@ -36,12 +36,12 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     'type' => 'text',
                                     'text' => "Chat Wheel Sounds list\n
-                                    id - Sounds
-                                    1  - Ba-dum tishh
-                                    2  - Charge
-                                    3  - Frog
-                                    4  - Crash and burn
-                                    5  - Applause
+                                    \r\nid - Sounds
+                                    \r\n1  - Ba-dum tishh
+                                    \r\n2  - Charge
+                                    \r\n3  - Frog
+                                    \r\n4  - Crash and burn
+                                    \r\n5  - Applause
                                     6  - Sad trombone
                                     7  - Crickets
                                     8  - Drum roll
