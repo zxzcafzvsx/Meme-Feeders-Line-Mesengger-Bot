@@ -146,13 +146,16 @@ function parseMemes($response){
   $pick = rand(1, $count);
   $isNotImg = true;
   $img = $data[$pick];
+  $limit = 15;
 
   if($count > 0){
     while($isNotImg){
       $pick = rand(1, $count);
       $img = $data[$pick];
+      $limit--;
 
       error_log("Output Number was " . $pick);
+      if($limit == 0) break;
       if(array_key_exists('images', $img) || preg_match("/(.gif|.jpg|.png)/i", $img['link'])){
         $isNotImg = false;
         break;
@@ -166,8 +169,8 @@ function parseMemes($response){
       $thumb = $link;
       $ori = $link;
 
-      $thumb[2] = $thumb[2] . "t";
-      $ori[2] = $ori[2] . "m";
+      $thumb = $thumb[2] . "t";
+      $ori = $ori[2] . "m";
 
       $thumb = implode('.', $thumb);
       $ori = implode('.', $ori);
@@ -181,7 +184,7 @@ function parseMemes($response){
       $ori = $link;
 
       $thumb[2] = $thumb[2] . "t";
-      $ori[2] = $ori[2] . "m"; 
+      $ori[2] = $ori[2] . "m";
 
       $thumb = implode('.', $thumb);
       $ori = implode('.', $ori);
