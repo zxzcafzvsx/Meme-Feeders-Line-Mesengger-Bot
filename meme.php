@@ -100,7 +100,7 @@ function getImage($response){
     $img = $data[$pick];
     $id = $img['cover'];
 
-    $image = curlImage($id)['link'];
+    $image = json_decode(curlImage($id))['link'];
 
     $link = str_replace('http','https', $image);
     $link = explode(".", $link);
