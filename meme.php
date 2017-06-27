@@ -12,7 +12,7 @@ function getMemes(){
 
   curl_setopt_array($curl, array(
     // CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
-    CURLOPT_URL => "https://api.imgur.com/3/gallery/search/top/week/1?q=meme",
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/search/top/week/".rand(1,10)."?q=meme",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,

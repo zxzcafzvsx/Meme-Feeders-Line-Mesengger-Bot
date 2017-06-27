@@ -44,7 +44,7 @@ foreach ($client->parseEvents() as $event) {
                         ));
                         break;
                       case 'memes!':
-                        $memes = parseMemes(getMemes());
+                        $memes = getImage(getMemes());
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
@@ -93,6 +93,20 @@ foreach ($client->parseEvents() as $event) {
             }
             break;
         case 'join':
+            $memes = getImage(getMemes());
+            $client->replyMessage(array(
+                'replyToken' => $event['replyToken'],
+                'messages' => array(
+                    array(
+                        // 'type' => 'image',
+                        // "originalContentUrl": "",
+                        // "previewImageUrl": ""
+                        'type' => 'image',
+                        "originalContentUrl" => $memes[1],
+                        "previewImageUrl" => $memes[0]
+                    )
+                )
+            ));
             $client->replyMessage(array(
               'replyToken' => $event['replyToken'],
               'messages' => array(
@@ -115,7 +129,7 @@ function getMemes(){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/search/top/week/".rand(1,10)."?q=meme",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
