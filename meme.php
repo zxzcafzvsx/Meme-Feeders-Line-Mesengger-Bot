@@ -51,7 +51,7 @@ function parseMemes($response){
         // return $img['link'] . ' - ' . $pick;
       }
 
-    } while(!array_key_exists('images', $img))
+    } while(!array_key_exists('images', $img));
 
   } else {
     return "ERROR BRO";
