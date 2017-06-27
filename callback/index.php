@@ -134,7 +134,7 @@ function parseMemes($response){
     if(array_key_exists('images', $img)){
       return $img['images'][0]['link'];
     } else {
-      return ;
+      return "http://i.imgur.com/0gmXnb2.jpg";
     }
   } else {
     return "ERROR BRO";
