@@ -123,16 +123,28 @@ function getMemes(){
   }
 }
 
+
 function parseMemes($response){
-  $data = json_decode($response, true)->data;
+  $data = json_decode($response, true)['data'];
+  foreach ($data as $d) {
+    if(!array_key_exists('images', $d)){
+      unset($data[$d]);
+    }
+  }
   $count = count($data);
   $pick = rand(1, $count);
+  $img = $data[$pick];
 
   if($count > 0){
-    return $data[$pick]['link'];
+    if(array_key_exists('images', $img)){
+      return $img['images'][0]['link'] . ' ^ ' . $pick;
+    } else {
+      return;
+    }
   } else {
     return "ERROR BRO";
     error_log($data);
   }
 
+}
 }

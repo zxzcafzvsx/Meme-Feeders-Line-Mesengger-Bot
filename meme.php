@@ -50,7 +50,7 @@ function parseMemes($response){
     if(array_key_exists('images', $img)){
       return $img['images'][0]['link'] . ' ^ ' . $pick;
     } else {
-      return $img['link'] . ' ^ ' . $pick;
+      return;
     }
   } else {
     return "ERROR BRO";
