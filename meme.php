@@ -23,11 +23,16 @@ $memes = getImage(getMemes());
         <div class="col s12 m4 offset-m4">
           <div class="card">
             <div class="card-image">
-              <img src="<?php print_r($memes[1]); ?>">
+              <img src="<?php print_r($memes[1]); ?>" class="materialboxed">
             </div>
           </div>
         </div>
       </div>
+      <script>
+        $(document).ready(function(){
+          $('.materialboxed').materialbox();
+        });
+      </script>
   </body>
 </html>
 
