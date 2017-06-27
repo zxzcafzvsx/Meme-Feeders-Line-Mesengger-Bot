@@ -11,7 +11,7 @@ function getMemes(){
 
   curl_setopt_array($curl, array(
     // CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
-    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/top/1?showViral=true&mature=true",
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/1?showViral=true&mature=true",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -46,7 +46,7 @@ function parseMemes($response){
     while($isNotImg){
       $pick = rand(1, $count);
       $img = $data[$pick];
-      
+
       error_log("Output Number was " . $pick);
       if(array_key_exists('images', $img)) $isNotImg = false;
 
