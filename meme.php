@@ -35,12 +35,12 @@ function getMemes(){
 }
 
 function parseMemes($response){
-  $data = json_decode($response, true);
+  $data = json_decode($response, true)['data'];
   $count = count($data);
   $pick = rand(1, $count);
 
   if($count > 0){
-    return $data;
+    return $data[$pick];
     //return $data[$pick]->images[0]->link;
   } else {
     return "ERROR BRO";
