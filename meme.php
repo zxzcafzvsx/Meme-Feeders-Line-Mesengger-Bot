@@ -43,9 +43,9 @@ function parseMemes($response){
 
   if($count > 0){
 
-    do(
+    do{
       $img = $data[rand(1, $count)];
-    ) while(!array_key_exists('images', $img))
+    } while(!array_key_exists('images', $img))
 
     if(array_key_exists('images', $img)){
       return $img['images'][0]['link'] . ' ^ ' . $pick;
