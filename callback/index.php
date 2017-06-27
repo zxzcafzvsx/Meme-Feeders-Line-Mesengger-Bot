@@ -53,8 +53,8 @@ foreach ($client->parseEvents() as $event) {
                                     // "originalContentUrl": "",
                                     // "previewImageUrl": ""
                                     'type' => 'image',
-                                    "originalContentUrl" => $memes,
-                                    "previewImageUrl" => $memes
+                                    "originalContentUrl" => $memes[1],
+                                    "previewImageUrl" => $memes[0]
                                 )
                             )
                         ));
@@ -163,17 +163,30 @@ function parseMemes($response){
     if(array_key_exists('images', $img)){
       $link = str_replace('http','https', $img['images'][0]['link']);
       $link = explode(".", $link);
-      $link[2] = $link[2] . "t";
+      $thumb = $link;
+      $ori = $link;
 
-      $link = implode('.', $link);
+      $thumb = $thumb[2] . "s";
+      $ori = $ori[2] . "b";
+
+      $thumb = implode('.', $thumb);
+      $ori = implode('.', $ori);
+      $link = array($thumb, $ori);
 
       return $link;
     } else {
       $link = str_replace('http','https', $img['link']);
       $link = explode(".", $link);
-      $link[2] = $link[2] . "t";
+      $thumb = $link;
+      $ori = $link;
 
-      $link = implode('.', $link);
+      $thumb = $thumb[2] . "s";
+      $ori = $ori[2] . "b";
+
+      $thumb = implode('.', $thumb);
+      $ori = implode('.', $ori);
+      $link = array($thumb, $ori);
+
       return $link;
     }
 
