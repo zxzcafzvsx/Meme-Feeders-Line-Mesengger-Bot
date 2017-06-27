@@ -124,7 +124,7 @@ function getMemes(){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://api.imgur.com/3/gallery/search/top/week/".rand(1,10)."?q=meme",
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/search/top/month/".rand(1,10)."?q=meme",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
