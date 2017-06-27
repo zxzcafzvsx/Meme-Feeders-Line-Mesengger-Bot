@@ -48,9 +48,9 @@ function parseMemes($response){
 
   if($count > 0){
     if(array_key_exists('images', $img)){
-      return $data[$pick]['images'][0]['link'] . ' ^ ' . $pick;
+      return $img['images'][0]['link'] . ' ^ ' . $pick;
     } else {
-      return "ERROR";
+      return $img['link'] . ' ^ ' . $pick;
     }
   } else {
     return "ERROR BRO";
