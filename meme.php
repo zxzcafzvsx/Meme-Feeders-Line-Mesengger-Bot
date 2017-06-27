@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-$memes = parseMemes(getMemes());
+$memes = getImage(getMemes());
 
 print_r($memes[0] . "<br>");
 print_r($memes[1]);
@@ -12,7 +12,7 @@ function getMemes(){
 
   curl_setopt_array($curl, array(
     // CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
-    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/1?showViral=true&mature=true",
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/search/top/week/1?q=meme",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -91,4 +91,59 @@ function parseMemes($response){
     error_log($data);
   }
 
+}
+
+function getImage($response){
+    $data = json_decode($response, true)['data'];
+    $count = count($data);
+    $pick = rand(1, $count);
+    $img = $data[$pick];
+    $id = $img['cover'];
+
+    $image = curlImage($id)['link'];
+
+    $link = str_replace('http','https', $image);
+    $link = explode(".", $link);
+    $thumb = $link;
+    $ori = $link;
+
+    $thumb = $thumb[2] . "t";
+    $ori = $ori[2] . "m";
+
+    $thumb = implode('.', $thumb);
+    $ori = implode('.', $ori);
+    $link = array($thumb, $ori);
+
+    return $link;
+
+
+}
+
+function curlImage($id){
+  $curl = curl_init();
+
+  curl_setopt_array($curl, array(
+    // CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
+    CURLOPT_URL => "https://api.imgur.com/3/image/".$id,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+      "authorization: Client-ID 715e186f0ee257f"
+    ),
+  ));
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  if ($err) {
+    error_log("cURL Error #:" . $err);
+  } else {
+    return $response;
+  }
 }
