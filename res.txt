@@ -56,3 +56,7 @@ https://hydra-media.cursecdn.com/dota2.gamepedia.com/8/85/Chatwheel_ehto_g_g.wav
 https://hydra-media.cursecdn.com/dota2.gamepedia.com/1/16/Chatwheel_disastah.wav
 https://hydra-media.cursecdn.com/dota2.gamepedia.com/b/bb/Chatwheel_zou_hao_bu_song.wav
 https://hydra-media.cursecdn.com/dota2.gamepedia.com/f/f4/Chatwheel_eto_prosto_netchto.wav
+
+
+Hi, I\'m Dota 2 Chat Wheel Sounds Bot, \nuse /cw list for the list of sounds, \nuse /cw {id} to make the bot send the sounds of specific sounds
+\n \nhttp://blablaba.com
