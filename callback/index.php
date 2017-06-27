@@ -126,11 +126,6 @@ function getMemes(){
 
 function parseMemes($response){
   $data = json_decode($response, true)['data'];
-  foreach ($data as $d) {
-    if(!array_key_exists('images', $d)){
-      unset($data[$d]);
-    }
-  }
   $count = count($data);
   $pick = rand(1, $count);
   $img = $data[$pick];
