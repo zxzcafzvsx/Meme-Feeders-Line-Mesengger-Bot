@@ -42,18 +42,11 @@ function parseMemes($response){
 
 
   if($count > 0){
-    do {
-      $img = $data[rand(1, $count)];
-    } while (!array_key_exists('images', $img));
-
-    return $img['images'][0]['link'];
-    // if(array_key_exists('images', $img)){
-    //   return $data[$pick]['images'][0]['link'];
-    // } else {
-    //   return $data[$pick]['link'];
-    // }
-
-    //return $data[$pick]->images[0]->link;
+    if(array_key_exists('images', $img)){
+      return $data[$pick]['images'][0]['link'];
+    } else {
+      return $data[$pick]['link'];
+    }
   } else {
     return "ERROR BRO";
     error_log($data);
