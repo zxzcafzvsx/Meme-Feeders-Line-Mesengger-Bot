@@ -54,11 +54,11 @@ function parseMemes($response){
         error_log("IMAGES KEY FOUNDEEEEDD");
       }
     }
-    
+
     if(array_key_exists('images', $img)){
-      return $img['images'][0]['link'];
+      return substr_replace(str_replace('http','https', $img['images'][0]['link']), 't', 28, 0);
     } else {
-      return $img['link'];
+      return substr_replace(str_replace('http','https', $img['link'], 't', 28, 0);
     }
 
   } else {
