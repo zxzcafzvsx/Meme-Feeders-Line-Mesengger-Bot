@@ -28,7 +28,7 @@ foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
-            switch ($message['type']) {
+            switch (strtolower($message['type'])) {
                 case 'text':
                     switch ($message['text']) {
                       case '/cws list':
@@ -167,7 +167,7 @@ function parseMemes($response){
       $ori = $link;
 
       $thumb[2] = $thumb[2] . "s";
-      $ori[2] = $ori[2] . "b";
+      $ori[2] = $ori[2] . "t";
 
       $thumb = implode('.', $thumb);
       $ori = implode('.', $ori);
@@ -181,7 +181,7 @@ function parseMemes($response){
       $ori = $link;
 
       $thumb[2] = $thumb[2] . "s";
-      $ori[2] = $ori[2] . "b";
+      $ori[2] = $ori[2] . "t";
 
       $thumb = implode('.', $thumb);
       $ori = implode('.', $ori);

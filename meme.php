@@ -63,7 +63,7 @@ function parseMemes($response){
       $ori = $link;
 
       $thumb = $thumb[2] . "s";
-      $ori = $ori[2] . "b";
+      $ori = $ori[2] . "t";
 
       $thumb = implode('.', $thumb);
       $ori = implode('.', $ori);
@@ -77,7 +77,7 @@ function parseMemes($response){
       $ori = $link;
 
       $thumb[2] = $thumb[2] . "s";
-      $ori[2] = $ori[2] . "b";
+      $ori[2] = $ori[2] . "t";
 
       $thumb = implode('.', $thumb);
       $ori = implode('.', $ori);
