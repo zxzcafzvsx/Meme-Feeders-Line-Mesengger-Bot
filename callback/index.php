@@ -60,7 +60,7 @@ foreach ($client->parseEvents() as $event) {
                         ));
                         break;
                       default:
-                        $expMsg = explode(" ", $message);
+                        $expMsg = explode(" ",  $message['text']);
                         if($expMsg[0] == "/cws"){
                             $soundId = $expMsg[1];
                             $client->replyMessage(array(
@@ -73,17 +73,18 @@ foreach ($client->parseEvents() as $event) {
                                     )
                                 )
                             ));
-                        }
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $message['text']
+                        } else {
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                    array(
+                                        'type' => 'text',
+                                        'text' => $message['text']
+                                    )
                                 )
-                            )
-                        ));
-                        break;
+                            ));
+                            break;
+                        }
                     }
                     break;
                 default:
