@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 $memes = parseMemes(getMemes());
 
-print_r($memes[0] . "\n");
+print_r($memes[0] . "<br>");
 print_r($memes[1]);
 
 
