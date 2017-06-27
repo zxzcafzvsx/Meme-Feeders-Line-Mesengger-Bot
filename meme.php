@@ -49,7 +49,7 @@ function parseMemes($response){
 
       error_log("Output Number was " . $pick);
       if(array_key_exists('images', $img)) $isNotImg = false;
-
+      break;
     }
     return $img['images'][0]['link'];
   } else {
