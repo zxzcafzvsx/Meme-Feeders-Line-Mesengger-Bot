@@ -51,12 +51,11 @@ foreach ($client->parseEvents() as $event) {
                                     // "originalContentUrl": "",
                                     // "previewImageUrl": ""
                                     'type' => 'image',
-                                    "originalContentUrl": $memes,
-                                    "previewImageUrl": $memes
+                                    "originalContentUrl" => $memes,
+                                    "previewImageUrl" => $memes
                                 )
                             )
                         ));
-
                         break;
                       default:
                         $client->replyMessage(array(
