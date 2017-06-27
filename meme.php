@@ -51,6 +51,7 @@ function parseMemes($response){
       if(array_key_exists('images', $img)){
         $isNotImg = false;
         break;
+        error_log("IMAGES KEY FOUNDEEEEDD");
       }
     }
     return $img['images'][0]['link'];
