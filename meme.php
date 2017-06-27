@@ -56,9 +56,20 @@ function parseMemes($response){
     }
 
     if(array_key_exists('images', $img)){
-      return substr_replace(str_replace('http','https', $img['images'][0]['link']), 't', 27, 0);
+      $link = str_replace('http','https', $img['images'][0]['link']);
+      $link = explode(".", $link);
+      $link[2] = $link[2] . "t";
+
+      $link = implode('', $link);
+
+      return $link;
     } else {
-      return substr_replace(str_replace('http','https', $img['link']), 't', 27, 0);
+      $link = str_replace('http','https', $img['link']);
+      $link = explode(".", $link);
+      $link[2] = $link[2] . "t";
+
+      $link = implode('', $link);
+      return $link;
     }
 
   } else {
