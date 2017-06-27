@@ -68,7 +68,7 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                     array(
                                         "type" => "audio",
-                                        "originalContentUrl" => "powerful-spire-57573.herokuapp.com/sounds/" . $id,
+                                        "originalContentUrl" => "powerful-spire-57573.herokuapp.com/sounds/" . $id . ".m4a",
                                         "duration" => 3000
                                     )
                                 )
@@ -79,7 +79,7 @@ foreach ($client->parseEvents() as $event) {
                                 'messages' => array(
                                     array(
                                         'type' => 'text',
-                                        'text' => $message['text']
+                                        'text' => $event['source']['userId']
                                     )
                                 )
                             ));
