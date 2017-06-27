@@ -2,7 +2,8 @@
 error_reporting(E_ALL);
 $memes = parseMemes(getMemes());
 
-print_r($memes);
+print_r($memes[0]);
+print_r($memes[1]);
 
 
 function getMemes(){
@@ -58,17 +59,30 @@ function parseMemes($response){
     if(array_key_exists('images', $img)){
       $link = str_replace('http','https', $img['images'][0]['link']);
       $link = explode(".", $link);
-      $link[2] = $link[2] . "t";
+      $thumb = $link;
+      $ori = $link;
 
-      $link = implode('.', $link);
+      $thumb = $thumb[2] . "s";
+      $ori = $ori[2] . "b";
+
+      $thumb = implode('.', $thumb);
+      $ori = implode('.', $ori);
+      $link = array($thumb, $ori);
 
       return $link;
     } else {
       $link = str_replace('http','https', $img['link']);
       $link = explode(".", $link);
-      $link[2] = $link[2] . "t";
+      $thumb = $link;
+      $ori = $link;
 
-      $link = implode('.', $link);
+      $thumb = $thumb[2] . "s";
+      $ori = $ori[2] . "b";
+
+      $thumb = implode('.', $thumb);
+      $ori = implode('.', $ori);
+      $link = array($thumb, $ori);
+
       return $link;
     }
 
