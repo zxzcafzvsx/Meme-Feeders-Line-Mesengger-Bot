@@ -104,17 +104,12 @@ foreach ($client->parseEvents() as $event) {
                         'type' => 'image',
                         "originalContentUrl" => $memes[1],
                         "previewImageUrl" => $memes[0]
+                    ),
+                    array(
+                        'type' => 'text',
+                        'text' => "Type 'memes!'' for memes"
                     )
                 )
-            ));
-            $client->pushMessage(array(
-              'to' => $event['source']['groupId'],
-              'messages' => array(
-                array(
-                  'type' => 'text',
-                  'text' => "Type 'memes!'' for memes"
-                )
-              )
             ));
             break;
         default:
