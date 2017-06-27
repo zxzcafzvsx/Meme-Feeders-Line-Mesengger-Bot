@@ -49,8 +49,7 @@ function parseMemes($response){
       if(array_key_exists('images', $img)) $isNotImg = false;
 
     }
-      return $img['images'][0]['link'];
-    }
+    return $img['images'][0]['link'];
   } else {
     return "ERROR BRO";
     error_log($data);
