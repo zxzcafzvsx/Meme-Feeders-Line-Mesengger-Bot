@@ -45,7 +45,7 @@ function parseMemes($response){
   if($count > 0){
     while($isNotImg){
 
-      if(array_key_exists('images', $img) || strpos($img['link'], '.gif||.jpg||.png') !== false)){
+      if(array_key_exists('images', $img) || preg_match("/(.gif|.jpg|.png)/i", $img['link'])){
         $isNotImg = false;
         break;
         error_log("IMAGES KEY FOUNDEEEEDD");
