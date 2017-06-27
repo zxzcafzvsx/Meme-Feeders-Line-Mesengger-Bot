@@ -44,8 +44,10 @@ function parseMemes($response){
 
   if($count > 0){
     while($isNotImg){
-      $img = $data[rand(1, $count)];
-
+      $pick = rand(1, $count);
+      $img = $data[$pick];
+      
+      error_log("Output Number was " . $pick);
       if(array_key_exists('images', $img)) $isNotImg = false;
 
     }
