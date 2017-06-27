@@ -39,13 +39,17 @@ function parseMemes($response){
   $data = json_decode($response, true)['data'];
   $count = count($data);
   $pick = rand(1, $count);
+  $isNotImg = true;
   $img = $data[$pick];
 
   if($count > 0){
-    if(array_key_exists('images', $img)){
-      return $img['images'][0]['link'] . ' ^ ' . $pick;
-    } else {
-      return $img['link'];
+    while($isNotImg){
+      $img = $data[rand(1, $count)];
+
+      if(array_key_exists('images', $img)) $isNotImg = false;
+
+    }
+      return $img['images'][0]['link'];
     }
   } else {
     return "ERROR BRO";
