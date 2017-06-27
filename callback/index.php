@@ -128,6 +128,7 @@ function parseMemes($response){
     return $count;
   } else {
     return "ERROR BRO";
+    error_log($data);
   }
 
 }
