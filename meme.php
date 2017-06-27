@@ -10,7 +10,8 @@ function getMemes(){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
+    // CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true",
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/1?showViral=true&mature=true",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
