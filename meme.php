@@ -60,7 +60,7 @@ function parseMemes($response){
       $link = explode(".", $link);
       $link[2] = $link[2] . "t";
 
-      $link = implode('', $link);
+      $link = implode('.', $link);
 
       return $link;
     } else {
@@ -68,7 +68,7 @@ function parseMemes($response){
       $link = explode(".", $link);
       $link[2] = $link[2] . "t";
 
-      $link = implode('', $link);
+      $link = implode('.', $link);
       return $link;
     }
 
