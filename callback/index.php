@@ -127,7 +127,7 @@ function parseMemes($response){
   $data = json_decode($response, true)->data;
   $count = count($data);
 
-  if(count > 0){
+  if($count > 0){
     return $count;
   } else {
     return "ERROR BRO";
