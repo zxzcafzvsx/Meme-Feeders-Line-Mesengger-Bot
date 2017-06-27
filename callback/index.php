@@ -62,7 +62,7 @@ foreach ($client->parseEvents() as $event) {
                       default:
                         $expMsg = explode(" ",  $message['text']);
                         if($expMsg[0] == "/cws"){
-                            $soundId = $expMsg[1] || 0;
+                            $soundId = $expMsg[1] -1 || 0;
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
