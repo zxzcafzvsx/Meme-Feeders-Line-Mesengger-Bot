@@ -126,9 +126,10 @@ function getMemes(){
 function parseMemes($response){
   $data = json_decode($response)->data;
   $count = count($data);
+  $pick = rand(1, $count);
 
   if($count > 0){
-    return $count;
+    return $data[$count]->images[0]->link;
   } else {
     return "ERROR BRO";
     error_log($data);
