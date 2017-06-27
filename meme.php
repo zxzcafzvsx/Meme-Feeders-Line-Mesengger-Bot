@@ -39,20 +39,13 @@ function parseMemes($response){
   $data = json_decode($response, true)['data'];
   $count = count($data);
   $pick = rand(1, $count);
-  $img = $data[$pick];
 
   if($count > 0){
-
-    do{
-      if(array_key_exists('images', $img)){
-        return $img['images'][0]['link'] . ' ^ ' . $pick;
-      } else {
-        $img = $data[rand(1, $count)];
-        // return $img['link'] . ' - ' . $pick;
-      }
-
-    } while(!array_key_exists('images', $img));
-
+    if(array_key_exists('images', $img)){
+      return $data[$pick]['images'][0]['link'] . ' ^ ' . $pick;
+    } else {
+      return parseMemes(getMemes());
+    }
   } else {
     return "ERROR BRO";
     error_log($data);
