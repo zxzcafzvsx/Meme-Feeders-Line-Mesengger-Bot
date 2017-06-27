@@ -44,16 +44,14 @@ function parseMemes($response){
 
   if($count > 0){
     while($isNotImg){
+      $pick = rand(1, $count);
+      $img = $data[$pick];
 
+      error_log("Output Number was " . $pick);
       if(array_key_exists('images', $img) || preg_match("/(.gif|.jpg|.png)/i", $img['link'])){
         $isNotImg = false;
         break;
         error_log("IMAGES KEY FOUNDEEEEDD");
-      } else {
-          $pick = rand(1, $count);
-          $img = $data[$pick];
-
-          error_log("Output Number was " . $pick);
       }
     }
     return $img['images'][0]['link'];
