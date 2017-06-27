@@ -39,7 +39,8 @@ function parseMemes($response){
   $data = json_decode($response, true)['data'];
   $count = count($data);
   $pick = rand(1, $count);
-
+  $img = $data[$pick];
+  
   if($count > 0){
     if(array_key_exists('images', $img)){
       return $data[$pick]['images'][0]['link'] . ' ^ ' . $pick;
