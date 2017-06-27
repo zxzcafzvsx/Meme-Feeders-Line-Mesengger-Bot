@@ -42,6 +42,7 @@ foreach ($client->parseEvents() as $event) {
                         ));
                         break;
                       case 'memes!':
+                        $memes = parseMemes(getMemes());
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
@@ -50,10 +51,12 @@ foreach ($client->parseEvents() as $event) {
                                     // "originalContentUrl": "",
                                     // "previewImageUrl": ""
                                     'type' => 'text',
-                                    'text' => parseMemes(getMemes())
+                                    'text' => $memes
                                 )
                             )
                         ));
+
+                        break;
                       default:
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
