@@ -17,6 +17,7 @@
  */
 
 require_once('./LINEBotTiny.php');
+require_once('./functions.php');
 
 $channelAccessToken = '{{channel_access_token}}';
 $channelSecret = '{{channel_secret}}';
