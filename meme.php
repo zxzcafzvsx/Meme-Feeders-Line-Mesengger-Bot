@@ -1,8 +1,8 @@
 <?php
-error_reporting(E_ALL); 
+error_reporting(E_ALL);
 $memes = parseMemes(getMemes());
 
-echo $memes;
+print_r($memes);
 
 
 function getMemes(){
@@ -40,7 +40,8 @@ function parseMemes($response){
   $pick = rand(1, $count);
 
   if($count > 0){
-    return $data[$pick]->images[0]->link;
+    return $data[$pick];
+    //return $data[$pick]->images[0]->link;
   } else {
     return "ERROR BRO";
     error_log($data);
