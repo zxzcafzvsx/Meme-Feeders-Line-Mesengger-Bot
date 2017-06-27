@@ -124,7 +124,7 @@ function getMemes(){
 }
 
 function parseMemes($response){
-  $data = json_decode($response, true)['data'];
+  $data = json_decode($response, true)->data;
   $count = count($data);
 
   if(count > 0){
