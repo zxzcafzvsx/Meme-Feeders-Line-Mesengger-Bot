@@ -50,8 +50,9 @@ foreach ($client->parseEvents() as $event) {
                                     // 'type' => 'image',
                                     // "originalContentUrl": "",
                                     // "previewImageUrl": ""
-                                    'type' => 'text',
-                                    'text' => $memes
+                                    'type' => 'image',
+                                    "originalContentUrl": $memes,
+                                    "previewImageUrl": $memes
                                 )
                             )
                         ));
