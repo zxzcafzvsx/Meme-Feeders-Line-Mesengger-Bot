@@ -62,13 +62,13 @@ foreach ($client->parseEvents() as $event) {
                       default:
                         $expMsg = explode(" ",  $message['text']);
                         if($expMsg[0] == "/cws"){
-                            $soundId = $expMsg[1];
+                            $soundId = $expMsg[1] || 0;
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
                                 'messages' => array(
                                     array(
                                         "type" => "audio",
-                                        "originalContentUrl" => "https://powerful-spire-57573.herokuapp.com/sounds/" . $id . ".m4a",
+                                        "originalContentUrl" => "https://powerful-spire-57573.herokuapp.com/sounds/" . $sounds[$id] . ".m4a",
                                         "duration" => 3000
                                     )
                                 )
