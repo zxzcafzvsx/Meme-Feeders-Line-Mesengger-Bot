@@ -58,7 +58,7 @@ function parseMemes($response){
     if(array_key_exists('images', $img)){
       return substr_replace(str_replace('http','https', $img['images'][0]['link']), 't', 28, 0);
     } else {
-      return substr_replace(str_replace('http','https', $img['link'], 't', 28, 0);
+      return substr_replace(str_replace('http','https', $img['link']), 't', 28, 0);
     }
 
   } else {
