@@ -140,19 +140,32 @@ function getMemes(){
   }
 }
 
-
 function parseMemes($response){
   $data = json_decode($response, true)['data'];
   $count = count($data);
   $pick = rand(1, $count);
+  $isNotImg = true;
   $img = $data[$pick];
 
   if($count > 0){
+    while($isNotImg){
+      $pick = rand(1, $count);
+      $img = $data[$pick];
+
+      error_log("Output Number was " . $pick);
+      if(array_key_exists('images', $img) || preg_match("/(.gif|.jpg|.png)/i", $img['link'])){
+        $isNotImg = false;
+        break;
+        error_log("IMAGES KEY FOUNDEEEEDD");
+      }
+    }
+
     if(array_key_exists('images', $img)){
       return $img['images'][0]['link'];
     } else {
-      return "http://i.imgur.com/0gmXnb2.jpg";
+      return $img['link'];
     }
+
   } else {
     return "ERROR BRO";
     error_log($data);
