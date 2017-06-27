@@ -60,7 +60,7 @@ foreach ($client->parseEvents() as $event) {
                         ));
                         break;
                       default:
-                        if(strpos($message, "/cw" !== false){
+                        if(strpos($message, "/cw" !== false)){
                             $soundId = explode(" ",$message)[1];
                             $client->replyMessage(array(
                                 'replyToken' => $event['replyToken'],
