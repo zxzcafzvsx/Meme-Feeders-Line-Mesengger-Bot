@@ -107,8 +107,8 @@ foreach ($client->parseEvents() as $event) {
                     )
                 )
             ));
-            $client->replyMessage(array(
-              'replyToken' => $event['replyToken'],
+            $client->pushMessage(array(
+              'to' => $event['source']['groupId'],
               'messages' => array(
                 array(
                   'type' => 'text',
