@@ -37,11 +37,6 @@ function getMemes(){
 
 function parseMemes($response){
   $data = json_decode($response, true)['data'];
-  foreach ($data as $d) {
-    if(!array_key_exists('images', $d)){
-      unset($data[$d]);
-    }
-  }
   $count = count($data);
   $pick = rand(1, $count);
   $img = $data[$pick];
@@ -50,7 +45,7 @@ function parseMemes($response){
     if(array_key_exists('images', $img)){
       return $img['images'][0]['link'] . ' ^ ' . $pick;
     } else {
-      return;
+      return $img['link'];
     }
   } else {
     return "ERROR BRO";
