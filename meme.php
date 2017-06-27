@@ -54,7 +54,13 @@ function parseMemes($response){
         error_log("IMAGES KEY FOUNDEEEEDD");
       }
     }
-    return $img['images'][0]['link'];
+    
+    if(array_key_exists('images', $img)){
+      return $img['images'][0]['link'];
+    } else {
+      return $img['link'];
+    }
+
   } else {
     return "ERROR BRO";
     error_log($data);
