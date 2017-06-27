@@ -44,14 +44,15 @@ function parseMemes($response){
   if($count > 0){
 
     do{
-      $img = $data[rand(1, $count)];
+      if(array_key_exists('images', $img)){
+        return $img['images'][0]['link'] . ' ^ ' . $pick;
+      } else {
+        $img = $data[rand(1, $count)];
+        // return $img['link'] . ' - ' . $pick;
+      }
+
     } while(!array_key_exists('images', $img))
 
-    if(array_key_exists('images', $img)){
-      return $img['images'][0]['link'] . ' ^ ' . $pick;
-    } else {
-      return $img['link'] . ' - ' . $pick;
-    }
   } else {
     return "ERROR BRO";
     error_log($data);
