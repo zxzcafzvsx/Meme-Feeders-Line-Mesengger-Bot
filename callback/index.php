@@ -35,13 +35,25 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => "Chat Wheel Sounds list\nid - Sounds\n1  - Ba-dum tishh\n2  - Charge\n3  - Frog\n4  - Crash and burn\n5  - Applause\n6  - Sad trombone\n7  - Crickets\n8  - Drum roll\n9  - Headshake\n10 - Crybaby\n11 - Patience from Zhou\n12 - 玩不了啦!\n13 - Боже, ты посмотри вокруг, что происходит!\n14 - Waow\n15 - 破两路更好打, 是吧?\n16 - Жил до конца, умер как герой\n17 - They're all dead!\n18 - 天火!\n19 - Ай-ай-ай-ай-ай, что сейчас произошло!\n20 - Brutal. Savage. Rekt.\n21 - 加油!\n22 - Это ГГ\n23 - It's a disastah!\n24 - 走好, 不送\n25 - Это. Просто. Нечто.
+                                    'text' => "Chat Wheel Sounds list\nid  - Sounds\n1  - Ba-dum tishh\n2  - Charge\n3  - Frog\n4  - Crash and burn\n5  - Applause\n6  - Sad trombone\n7  - Crickets\n8  - Drum roll\n9  - Headshake\n10 - Crybaby\n11 - Patience from Zhou\n12 - 玩不了啦!\n13 - Боже, ты посмотри вокруг, что происходит!\n14 - Waow\n15 - 破两路更好打, 是吧?\n16 - Жил до конца, умер как герой\n17 - They're all dead!\n18 - 天火!\n19 - Ай-ай-ай-ай-ай, что сейчас произошло!\n20 - Brutal. Savage. Rekt.\n21 - 加油!\n22 - Это ГГ\n23 - It's a disastah!\n24 - 走好, 不送\n25 - Это. Просто. Нечто.
                                     "
                                 )
                             )
                         ));
                         break;
-
+                      case 'memes!':
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    // 'type' => 'image',
+                                    // "originalContentUrl": "",
+                                    // "previewImageUrl": ""
+                                    'type' => 'text',
+                                    'text' => parseMemes(getMemes());
+                                )
+                            )
+                        ));
                       default:
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
@@ -77,3 +89,43 @@ foreach ($client->parseEvents() as $event) {
             break;
     }
 };
+
+
+function getMemes(){
+
+  $curl = curl_init();
+
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://api.imgur.com/3/gallery/hot/top/week/" . rand(1,10) . "?showViral=true&mature=true&album_previews=true",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+      "authorization: Client-ID 715e186f0ee257f"
+    ),
+  ));
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  if ($err) {
+    echo "cURL Error #:" . $err;
+  } else {
+    echo $response;
+  }
+}
+
+function parseMemes($response){
+  $data = json_decode($response, true)['data'];
+  $count = count($data);
+
+  if(count > 0){
+    return $count;
+  }
+
+}
