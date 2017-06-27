@@ -126,6 +126,8 @@ function parseMemes($response){
 
   if(count > 0){
     return $count;
+  } else {
+    return "ERROR BRO";
   }
 
 }
