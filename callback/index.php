@@ -21,6 +21,8 @@ require_once('./LINEBotTiny.php');
 $channelAccessToken = 'EimjYrf1GS6FS/5QEk7puuvsBChbdnV7UYlgEBED1zR1xqMe6HvD8L7NORVBCxlbZjBBQ+s3MAQwbGcknV1yagHcoRw9ehjFtgF9lxNoC3N/VrpSYTACFDmgb5IZU27WjlMbySRs58LGH90SLzwJWgdB04t89/1O/w1cDnyilFU=';
 $channelSecret = 'fb4467f294d0eff83fdbaed08ed146fc';
 
+$sounds = ['chatwheel_rimshot','chatwheel_charge','chatwheel_frog','chatwheel_crash_burn','crowd_lv_01'];
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
@@ -58,6 +60,19 @@ foreach ($client->parseEvents() as $event) {
                         ));
                         break;
                       default:
+                        if(strpos($message, "/cw" !== false){
+                            $soundId = explode(" ",$message)[1];
+                            $client->replyMessage(array(
+                                'replyToken' => $event['replyToken'],
+                                'messages' => array(
+                                    array(
+                                        "type" => "audio",
+                                        "originalContentUrl" => "powerful-spire-57573.herokuapp.com/sounds/" . $id,
+                                        "duration" => 3000
+                                    )
+                                )
+                            ));
+                        }
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
